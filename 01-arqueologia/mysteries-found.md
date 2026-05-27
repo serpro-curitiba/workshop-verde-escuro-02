@@ -181,7 +181,6 @@ Declaração da variável usada como "truncador":
 ```natural
   1 #VLR-TEMP            (N11)   /* inteiro - sem casas decimais */
 ```
-
 - **O que esperávamos**: arredondamento bancário padrão (half-up) — `INT(valor × 100 + 0.5) ÷ 100`
 - **O que o código faz**: `#VLR-TEMP` é declarado como `(N11)` — inteiro sem casas decimais; ao fazer `COMPUTE #VLR-TEMP = #VLR-BENF * 100`, o Natural/Adabas descarta a parte fracionária por atribuição a inteiro (floor truncation); dividir por 100 devolve 2 casas decimais mas sempre arredondado para baixo; o padrão é aplicado **4 vezes** num pagamento normal (VLR-BENF, VLR-LIQ em CALCBENF + VLR-MAX-DSCT, VLR-TOTAL-DSCT em CALCDSCT) e **6 vezes** em dezembro (+ VLR-13 e VLR-ABONO); o comentário `PADRAO MAINFRAME` indica que é herança consciente do sistema original, mas não justifica a ausência de arredondamento
 - **Hipótese do time**: a implementação replica o comportamento de um campo `PACKED DECIMAL` de mainframe IBM que também trunca, e foi portada literalmente para Natural sem avaliar se a semântica financeira deveria ser preservada ou corrigida; a perda por truncação é sempre a favor do pagador (governo), nunca do beneficiário
