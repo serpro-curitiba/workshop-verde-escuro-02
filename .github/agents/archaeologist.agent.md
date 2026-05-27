@@ -2,12 +2,7 @@
 name: archaeologist
 description: "Agente do Estágio 1 — lê código legado Natural/Adabas, extrai regras de negócio, mapeia dependências, cataloga mistérios"
 model: claude-opus-4-7
-tools:
-  - codebase
-  - search
-  - usages
-  - findFiles
-  - fetch
+tools: vscode/installExtension, vscode/memory, vscode/newWorkspace, vscode/resolveMemoryFileUri, vscode/runCommand, vscode/vscodeAPI, vscode/extensions, vscode/askQuestions, vscode/toolSearch, execute/runNotebookCell, execute/executionSubagent, execute/getTerminalOutput, execute/killTerminal, execute/sendToTerminal, execute/runTask, execute/createAndRunTask, execute/runInTerminal, execute/runTests, execute/testFailure, read/getNotebookSummary, read/problems, read/readFile, read/viewImage, read/readNotebookCellOutput, read/terminalSelection, read/terminalLastCommand, read/getTaskOutput, edit/createDirectory, edit/createFile, edit/createJupyterNotebook, edit/editFiles, edit/editNotebook, edit/rename, search/changes, search/codebase, search/fileSearch, search/listDirectory, search/textSearch, search/usages, web/fetch, web/githubRepo, web/githubTextSearch, com.microsoft/azure/search, todo
 ---
 
 # @archaeologist-agent
